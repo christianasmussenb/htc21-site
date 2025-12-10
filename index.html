@@ -284,11 +284,22 @@
             Cuéntanos en qué etapa estás: diagnóstico inicial, implementación de un sistema, integración de plataformas o adopción de IA. Diseñamos contigo un plan simple y accionable.
           </p>
           <p>
-            Escríbenos a <a href="mailto:contacto@htc21.site">contacto@htc21.site</a> o agenda una reunión directa:
+            Agenda una reunión directa o escríbenos por correo:
           </p>
-          <a class="btn" href="mailto:contacto@htc21.site?subject=Quiero%20conversar%20sobre%20transformaci%C3%B3n%20digital%20con%20HTC&body=Hola%20HTC%2C%0A%0AQueremos%20evaluar%20un%20proyecto%20de%20transformaci%C3%B3n%20digital%20en%20nuestra%20organizaci%C3%B3n.%20%0A%0AAtentamente%2C%0A">
+
+          <!-- Botón principal: Calendly -->
+          <a class="btn" href="https://calendly.com/christian-htc/30min"
+             target="_blank" rel="noopener">
             Agenda una reunión
           </a>
+
+          <!-- Emails obfuscados -->
+          <p class="muted" style="margin-top:0.9rem;">
+            También puedes escribir a
+            <a class="em" data-user="christian" data-domain="casmuss.com"></a>
+            o
+            <a class="em" data-user="paola" data-domain="casmuss.com"></a>.
+          </p>
         </section>
       </section>
 
@@ -336,7 +347,18 @@
       El Clonqui 1077, Vitacura, Santiago, Chile · htc21.site
     </div>
     © <span id="year"></span> Health Technology Consulting
-    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
   </footer>
+
+  <script>
+    // Año en el footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Construye los emails a partir de data-*
+    document.querySelectorAll('a.em').forEach(function (a) {
+      var addr = a.dataset.user + '@' + a.dataset.domain;
+      a.textContent = addr;
+      a.href = 'mailto:' + addr;
+    });
+  </script>
 </body>
 </html>
