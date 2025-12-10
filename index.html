@@ -2,49 +2,201 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Health Technology Consulting</title>
+  <title>Health Technology Consulting · Transformación digital en salud y PYMEs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Consultora boutique de transformación digital para prestadores de salud privados y PYMEs sin grandes equipos de TI. Proyectos breves de alto impacto y acompañamiento de mediano plazo." />
   <style>
-    body { font-family: system-ui, -apple-system, sans-serif; margin: 0; padding: 0; }
-    header { padding: 3rem 1.5rem; text-align: center; background: #0f172a; color: #f9fafb; }
-    main { max-width: 900px; margin: 2rem auto; padding: 0 1.5rem; }
-    h1 { margin-bottom: 0.5rem; }
-    .pill { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 999px; background: #e5e7eb; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; }
-    section { margin-bottom: 2rem; }
-    ul { padding-left: 1.2rem; }
-    footer { text-align: center; font-size: 0.85rem; color: #6b7280; margin: 3rem 0 1.5rem; }
-    a { color: #2563eb; text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    :root {
+      --bg: #020617;
+      --bg-light: #0b1220;
+      --text-main: #020617;
+      --text-soft: #6b7280;
+      --accent: #38bdf8;
+      --pill: #e5e7eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 0;
+      color: var(--text-main);
+      background: #ffffff;
+    }
+    header {
+      padding: 3.5rem 1.5rem 3rem;
+      text-align: center;
+      background: linear-gradient(135deg, var(--bg), var(--bg-light));
+      color: #f9fafb;
+    }
+    main {
+      max-width: 960px;
+      margin: 2.5rem auto;
+      padding: 0 1.5rem 3rem;
+    }
+    h1 {
+      margin: 0.75rem 0 0.5rem;
+      font-size: clamp(2rem, 3vw, 2.5rem);
+    }
+    h2 {
+      margin: 0 0 0.75rem;
+      font-size: 1.25rem;
+    }
+    p { margin: 0.5rem 0 0.5rem; }
+    .pill {
+      display: inline-block;
+      padding: 0.3rem 0.9rem;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.85);
+      border: 1px solid rgba(148,163,184,0.4);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #e5e7eb;
+    }
+    .subtitle {
+      margin-top: 0.4rem;
+      font-size: 0.98rem;
+      color: #cbd5f5;
+    }
+    .grid {
+      display: grid;
+      gap: 2rem;
+    }
+    @media (min-width: 768px) {
+      .grid {
+        grid-template-columns: 1.4fr 1fr;
+        align-items: flex-start;
+      }
+    }
+    ul { padding-left: 1.2rem; margin: 0.5rem 0 0; }
+    li { margin-bottom: 0.25rem; }
+    .card {
+      border-radius: 1rem;
+      padding: 1.5rem;
+      border: 1px solid #e5e7eb;
+      background: #ffffff;
+      box-shadow: 0 12px 30px rgba(15,23,42,0.04);
+    }
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 0.25rem;
+      font-size: 1.05rem;
+    }
+    .tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: #4f46e5;
+      margin-bottom: 0.35rem;
+    }
+    .cta {
+      margin-top: 1.5rem;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.7rem 1.4rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-decoration: none;
+      background: var(--accent);
+      color: #0f172a;
+      box-shadow: 0 10px 25px rgba(56,189,248,0.35);
+      transition: transform 0.08s ease-out, box-shadow 0.08s ease-out;
+    }
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 32px rgba(56,189,248,0.45);
+    }
+    .btn:active {
+      transform: translateY(1px);
+      box-shadow: 0 6px 18px rgba(56,189,248,0.3);
+    }
+    .soft {
+      color: var(--text-soft);
+      font-size: 0.93rem;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-soft);
+      margin: 0 0 1.5rem;
+      padding: 0 1.5rem;
+    }
   </style>
 </head>
 <body>
   <header>
     <div class="pill">Consultora boutique · Salud & PYMEs</div>
     <h1>Health Technology Consulting</h1>
-    <p>Transformación digital para prestadores de salud privados y empresas sin grandes equipos de TI.</p>
+    <p class="subtitle">
+      Transformación digital para prestadores de salud privados y empresas sin grandes equipos de TI.
+    </p>
   </header>
+
   <main>
-    <section>
-      <h2>Qué hacemos</h2>
-      <ul>
-        <li>Proyectos breves de alto impacto en administración y operación.</li>
-        <li>Implementación y adopción de tecnologías de información y ofimática.</li>
-        <li>Acompañamiento de mediano plazo en el viaje de transformación digital.</li>
-      </ul>
-    </section>
-    <section>
-      <h2>Cómo trabajamos</h2>
-      <ul>
-        <li>Diagnóstico rápido de procesos y sistemas.</li>
-        <li>Roadmap pragmático, priorizando quick wins.</li>
-        <li>Integraciones ligeras con sistemas existentes.</li>
-      </ul>
-    </section>
-    <section>
-      <h2>Contacto</h2>
-      <p>Escríbenos a <a href="mailto:contacto@htc21.site">contacto@htc21.site</a> para coordinar una reunión.</p>
-    </section>
+    <div class="grid">
+      <section>
+        <h2>Qué hacemos</h2>
+        <ul>
+          <li>Proyectos breves de alto impacto en administración y operación.</li>
+          <li>Implementación y adopción de tecnologías de información y ofimática.</li>
+          <li>Acompañamiento de mediano plazo en el viaje de transformación digital.</li>
+        </ul>
+
+        <h2>Cómo trabajamos</h2>
+        <ul>
+          <li>Diagnóstico rápido de procesos, sistemas y datos.</li>
+          <li>Roadmap pragmático, priorizando quick wins y valor para el negocio.</li>
+          <li>Integraciones ligeras con sistemas existentes, sin grandes equipos internos de TI.</li>
+        </ul>
+
+        <section class="cta">
+          <h2>Hablemos</h2>
+          <p class="soft">
+            Cuéntanos en qué punto está tu organización y te proponemos un plan simple para avanzar.
+          </p>
+          <p>
+            Escríbenos a <a href="mailto:contacto@htc21.site">contacto@htc21.site</a> o agenda una reunión directa:
+          </p>
+          <a class="btn" href="mailto:contacto@htc21.site?subject=Quiero%20conversar%20sobre%20transformaci%C3%B3n%20digital&body=Hola%20HTC%2C%0A%0AQueremos%20conversar%20sobre%20transformaci%C3%B3n%20digital%20en%20nuestra%20organizaci%C3%B3n.%0A%0AAtentamente%2C%0A">
+            Agenda una reunión
+          </a>
+        </section>
+      </section>
+
+      <aside class="card">
+        <div class="tag">Prestadores de salud</div>
+        <h3>Para clínicas y centros médicos</h3>
+        <p class="soft">
+          Apoyamos a prestadores de salud privados a modernizar su operación sin detener la atención.
+        </p>
+        <ul>
+          <li>Optimización de procesos administrativos y de facturación.</li>
+          <li>Integración de sistemas clínicos, ERP y plataformas externas.</li>
+          <li>Gestión del cambio y adopción de nuevas herramientas de TI.</li>
+        </ul>
+
+        <hr style="margin:1rem 0; border:none; border-top:1px solid #e5e7eb;" />
+
+        <div class="tag">Empresas & PYMEs</div>
+        <h3>Para organizaciones sin gran equipo de TI</h3>
+        <p class="soft">
+          Llevamos buenas prácticas y herramientas modernas a empresas que necesitan avanzar rápido.
+        </p>
+        <ul>
+          <li>Migración a herramientas colaborativas y ofimática en la nube.</li>
+          <li>Automatización de tareas operativas y reporting.</li>
+          <li>Acompañamiento continuo como “equipo de TI extendido”.</li>
+        </ul>
+      </aside>
+    </div>
   </main>
+
   <footer>
     © <span id="year"></span> Health Technology Consulting · htc21.site
     <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
