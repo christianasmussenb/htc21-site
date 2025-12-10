@@ -187,6 +187,66 @@
       margin: 0 0 1.5rem;
       padding: 0 1.5rem;
     }
+
+    /* Formulario de contacto */
+    .contact-form {
+      margin-top: 1.2rem;
+      padding: 1.1rem 1.1rem 1.2rem;
+      border-radius: 0.9rem;
+      border: 1px solid #e5e7eb;
+      background: #f9fafb;
+    }
+    .contact-form .field {
+      margin-bottom: 0.7rem;
+    }
+    .contact-form label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+      color: #4b5563;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.45rem 0.6rem;
+      border-radius: 0.5rem;
+      border: 1px solid #d1d5db;
+      font-family: inherit;
+      font-size: 0.9rem;
+      outline: none;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #38bdf8;
+      box-shadow: 0 0 0 1px rgba(56,189,248,0.45);
+    }
+    .contact-form textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+    .contact-form button {
+      display: inline-block;
+      margin-top: 0.3rem;
+      padding: 0.55rem 1.2rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 500;
+      background: #0f172a;
+      color: #f9fafb;
+      box-shadow: 0 10px 25px rgba(15,23,42,0.35);
+      transition: transform 0.08s ease-out, box-shadow 0.08s ease-out;
+    }
+    .contact-form button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 32px rgba(15,23,42,0.45);
+    }
+    .contact-form button:active {
+      transform: translateY(1px);
+      box-shadow: 0 6px 18px rgba(15,23,42,0.3);
+    }
   </style>
 </head>
 <body>
@@ -284,21 +344,45 @@
             Cuéntanos en qué etapa estás: diagnóstico inicial, implementación de un sistema, integración de plataformas o adopción de IA. Diseñamos contigo un plan simple y accionable.
           </p>
           <p>
-            Agenda una reunión directa o escríbenos por correo:
+            Tienes dos opciones: agendar una reunión directa o enviarnos un mensaje breve.
           </p>
 
           <!-- Botón principal: Calendly -->
           <a class="btn" href="https://calendly.com/christian-htc/30min"
              target="_blank" rel="noopener">
-            Agenda una reunión
+            Agenda una reunión de 30 minutos
           </a>
 
-          <!-- Emails obfuscados -->
-          <p class="muted" style="margin-top:0.9rem;">
-            También puedes escribir a
-            <a class="em" data-user="christian" data-domain="casmuss.com"></a>
+          <!-- Formulario de contacto -->
+          <form class="contact-form"
+                action="https://formspree.io/f/xeoyrnwz"
+                method="POST">
+            <div class="field">
+              <label for="cf-nombre">Nombre</label>
+              <input type="text" id="cf-nombre" name="nombre" required />
+            </div>
+            <div class="field">
+              <label for="cf-email">Correo electrónico</label>
+              <input type="email" id="cf-email" name="_replyto" required />
+            </div>
+            <div class="field">
+              <label for="cf-empresa">Empresa (opcional)</label>
+              <input type="text" id="cf-empresa" name="empresa" />
+            </div>
+            <div class="field">
+              <label for="cf-mensaje">Mensaje</label>
+              <textarea id="cf-mensaje" name="mensaje" required></textarea>
+            </div>
+            <!-- Campo honeypot simple para bots -->
+            <input type="text" name="_gotcha" style="display:none" />
+            <button type="submit">Enviar mensaje</button>
+          </form>
+
+          <p class="muted" style="margin-top:0.8rem;">
+            O si prefieres, puedes escribirnos directamente a
+            <span class="em" data-user="christian" data-domain="casmuss.com"></span>
             o
-            <a class="em" data-user="paola" data-domain="casmuss.com"></a>.
+            <span class="em" data-user="paola" data-domain="casmuss.com"></span>.
           </p>
         </section>
       </section>
@@ -353,11 +437,10 @@
     // Año en el footer
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Construye los emails a partir de data-*
-    document.querySelectorAll('a.em').forEach(function (a) {
-      var addr = a.dataset.user + '@' + a.dataset.domain;
-      a.textContent = addr;
-      a.href = 'mailto:' + addr;
+    // Construye los emails a partir de data-*, solo como texto (sin mailto)
+    document.querySelectorAll('.em').forEach(function (el) {
+      var addr = el.dataset.user + '@' + el.dataset.domain;
+      el.textContent = addr;
     });
   </script>
 </body>
