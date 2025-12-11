@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contacto · Health Technology Consulting</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contacto con Health Technology Consulting: agenda una reunión o envía un mensaje breve para conversar sobre tu próximo proyecto de transformación digital." />
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-light: #0b1220;
+      --text-main: #020617;
+      --text-soft: #6b7280;
+      --accent: #38bdf8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 0;
+      color: var(--text-main);
+      background: #ffffff;
+    }
+    header {
+      padding: 1.25rem 1.5rem 2.5rem;
+      background: linear-gradient(135deg, var(--bg), var(--bg-light));
+      color: #f9fafb;
+    }
+    .topbar {
+      max-width: 1040px;
+      margin: 0 auto 1.75rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+    .brand-title {
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+    }
+    .brand-sub {
+      font-size: 0.8rem;
+      color: #cbd5f5;
+    }
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      align-items: center;
+      justify-content: flex-end;
+      font-size: 0.9rem;
+    }
+    .nav a {
+      color: #e5e7eb;
+      text-decoration: none;
+      padding-bottom: 0.15rem;
+      border-bottom: 1px solid transparent;
+    }
+    .nav a:hover {
+      border-bottom-color: rgba(148,163,184,0.9);
+    }
+    .nav a.active {
+      border-bottom-color: var(--accent);
+    }
+    .nav a.nav-cta {
+      border: none;
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #0f172a;
+      font-weight: 500;
+      box-shadow: 0 10px 25px rgba(56,189,248,0.35);
+    }
+    .subtitle-header {
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+    h1 {
+      margin: 0.5rem 0 0.3rem;
+      font-size: 1.9rem;
+    }
+    .subtitle {
+      margin-top: 0.25rem;
+      font-size: 0.95rem;
+      color: #cbd5f5;
+      max-width: 640px;
+    }
+    main {
+      max-width: 1040px;
+      margin: 2.5rem auto;
+      padding: 0 1.5rem 3rem;
+    }
+    h2 {
+      margin: 0 0 0.75rem;
+      font-size: 1.35rem;
+    }
+    p { margin: 0.4rem 0 0.5rem; }
+    .soft {
+      color: var(--text-soft);
+      font-size: 0.93rem;
+    }
+    .caps {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.75rem;
+      color: var(--text-soft);
+    }
+    .section {
+      margin-bottom: 2.4rem;
+    }
+    .layout {
+      display: grid;
+      gap: 2rem;
+    }
+    @media (min-width: 880px) {
+      .layout {
+        grid-template-columns: 1.2fr 1fr;
+      }
+    }
+    .btn-primary {
+      display: inline-block;
+      padding: 0.7rem 1.4rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-decoration: none;
+      background: var(--accent);
+      color: #0f172a;
+      box-shadow: 0 10px 25px rgba(56,189,248,0.35);
+      transition: transform 0.08s ease-out, box-shadow 0.08s ease-out;
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 32px rgba(56,189,248,0.45);
+    }
+    /* Formulario */
+    .contact-form {
+      margin-top: 1.2rem;
+      padding: 1.1rem 1.1rem 1.2rem;
+      border-radius: 0.9rem;
+      border: 1px solid #e5e7eb;
+      background: #f9fafb;
+    }
+    .contact-form .field {
+      margin-bottom: 0.7rem;
+    }
+    .contact-form label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+      color: #4b5563;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.45rem 0.6rem;
+      border-radius: 0.5rem;
+      border: 1px solid #d1d5db;
+      font-family: inherit;
+      font-size: 0.9rem;
+      outline: none;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #38bdf8;
+      box-shadow: 0 0 0 1px rgba(56,189,248,0.45);
+    }
+    .contact-form textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+    .contact-form button {
+      display: inline-block;
+      margin-top: 0.3rem;
+      padding: 0.55rem 1.2rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 500;
+      background: #0f172a;
+      color: #f9fafb;
+      box-shadow: 0 10px 25px rgba(15,23,42,0.35);
+      transition: transform 0.08s ease-out, box-shadow 0.08s ease-out;
+    }
+    .contact-form button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 32px rgba(15,23,42,0.45);
+    }
+    .contact-form button:active {
+      transform: translateY(1px);
+      box-shadow: 0 6px 18px rgba(15,23,42,0.3);
+    }
+    .muted {
+      color: var(--text-soft);
+      font-size: 0.85rem;
+    }
+    a { color: #2563eb; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-soft);
+      margin: 0 0 1.5rem;
+      padding: 0 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="topbar">
+      <div class="brand">
+        <div class="brand-title">Health Technology Consulting</div>
+        <div class="brand-sub">Transformación digital · Salud & Empresas</div>
+      </div>
+      <nav class="nav">
+        <a href="index.html">Inicio</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="sectores.html">Sectores</a>
+        <a href="casos.html">Casos de éxito</a>
+        <a href="contacto.html" class="nav-cta active">Contacto</a>
+      </nav>
+    </div>
+    <div class="subtitle-header">
+      <h1>Contacto</h1>
+      <p class="subtitle">
+        Agenda una reunión o envíanos un mensaje breve para explorar cómo podemos apoyar a tu organización.
+      </p>
+    </div>
+  </header>
+
+  <main>
+    <div class="layout">
+      <section class="section">
+        <div class="caps">Reunión</div>
+        <h2>Agenda una conversación de 30 minutos</h2>
+        <p class="soft">
+          Utiliza nuestro calendario para agendar una reunión en el horario que más te acomode. Es una conversación exploratoria, sin compromiso.
+        </p>
+        <p style="margin-top:0.9rem;">
+          <a class="btn-primary" href="https://calendly.com/christian-htc/30min" target="_blank" rel="noopener">
+            Abrir Calendly
+          </a>
+        </p>
+
+        <div class="section" style="margin-top:1.8rem;">
+          <div class="caps">Datos de contacto</div>
+          <p class="soft">
+            También puedes escribirnos directamente:
+          </p>
+          <p class="muted" style="margin-top:0.4rem;">
+            <strong>Correo:</strong>
+            <span class="em" data-user="christian" data-domain="casmuss.com"></span>,
+            <span class="em" data-user="paola" data-domain="casmuss.com"></span>
+          </p>
+          <p class="muted">
+            <strong>Dirección:</strong> El Clonqui 1077, Vitacura, Santiago, Chile.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="caps">Formulario</div>
+        <h2>Envíanos un mensaje</h2>
+        <p class="soft">
+          Cuéntanos brevemente el contexto de tu organización y qué te gustaría revisar. Te responderemos lo antes posible.
+        </p>
+
+        <form class="contact-form"
+              action="https://formspree.io/f/xeoyrnwz"
+              method="POST">
+          <div class="field">
+            <label for="cf-nombre">Nombre</label>
+            <input type="text" id="cf-nombre" name="nombre" required />
+          </div>
+          <div class="field">
+            <label for="cf-email">Correo electrónico</label>
+            <input type="email" id="cf-email" name="_replyto" required />
+          </div>
+          <div class="field">
+            <label for="cf-empresa">Empresa (opcional)</label>
+            <input type="text" id="cf-empresa" name="empresa" />
+          </div>
+          <div class="field">
+            <label for="cf-mensaje">Mensaje</label>
+            <textarea id="cf-mensaje" name="mensaje" required></textarea>
+          </div>
+          <input type="text" name="_gotcha" style="display:none" />
+          <button type="submit">Enviar mensaje</button>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="muted">
+      El Clonqui 1077, Vitacura, Santiago, Chile · htc21.site
+    </div>
+    © <span id="year"></span> Health Technology Consulting
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.querySelectorAll('.em').forEach(function (el) {
+      var addr = el.dataset.user + '@' + el.dataset.domain;
+      el.textContent = addr;
+    });
+  </script>
+</body>
+</html>
+<!DOCTYPE html>

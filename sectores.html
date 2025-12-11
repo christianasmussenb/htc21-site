@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sectores · Health Technology Consulting</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sectores que atendemos: prestadores de salud privados y empresas & PYMEs que buscan modernizar su operación con apoyo tecnológico." />
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-light: #0b1220;
+      --text-main: #020617;
+      --text-soft: #6b7280;
+      --accent: #38bdf8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 0;
+      color: var(--text-main);
+      background: #ffffff;
+    }
+    header {
+      padding: 1.25rem 1.5rem 2.5rem;
+      background: linear-gradient(135deg, var(--bg), var(--bg-light));
+      color: #f9fafb;
+    }
+    .topbar {
+      max-width: 1040px;
+      margin: 0 auto 1.75rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+    .brand-title {
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+    }
+    .brand-sub {
+      font-size: 0.8rem;
+      color: #cbd5f5;
+    }
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      align-items: center;
+      justify-content: flex-end;
+      font-size: 0.9rem;
+    }
+    .nav a {
+      color: #e5e7eb;
+      text-decoration: none;
+      padding-bottom: 0.15rem;
+      border-bottom: 1px solid transparent;
+    }
+    .nav a:hover {
+      border-bottom-color: rgba(148,163,184,0.9);
+    }
+    .nav a.active {
+      border-bottom-color: var(--accent);
+    }
+    .nav a.nav-cta {
+      border: none;
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #0f172a;
+      font-weight: 500;
+      box-shadow: 0 10px 25px rgba(56,189,248,0.35);
+    }
+    .subtitle-header {
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+    h1 {
+      margin: 0.5rem 0 0.3rem;
+      font-size: 1.9rem;
+    }
+    .subtitle {
+      margin-top: 0.25rem;
+      font-size: 0.95rem;
+      color: #cbd5f5;
+      max-width: 640px;
+    }
+    main {
+      max-width: 1040px;
+      margin: 2.5rem auto;
+      padding: 0 1.5rem 3rem;
+    }
+    h2 {
+      margin: 0 0 0.75rem;
+      font-size: 1.35rem;
+    }
+    h3 {
+      margin: 0 0 0.4rem;
+      font-size: 1.05rem;
+    }
+    p { margin: 0.4rem 0 0.5rem; }
+    .soft {
+      color: var(--text-soft);
+      font-size: 0.93rem;
+    }
+    .caps {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.75rem;
+      color: var(--text-soft);
+    }
+    .section {
+      margin-bottom: 2.4rem;
+    }
+    .sector-grid {
+      display: grid;
+      gap: 1.6rem;
+    }
+    @media (min-width: 880px) {
+      .sector-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    ul { padding-left: 1.2rem; margin: 0.4rem 0 0; }
+    li { margin-bottom: 0.25rem; font-size: 0.9rem; }
+    .card {
+      border-radius: 0.9rem;
+      border: 1px solid #e5e7eb;
+      padding: 1rem 1.2rem;
+      background: #f9fafb;
+    }
+    .btn-primary {
+      display: inline-block;
+      padding: 0.7rem 1.4rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-decoration: none;
+      background: var(--accent);
+      color: #0f172a;
+      box-shadow: 0 10px 25px rgba(56,189,248,0.35);
+      transition: transform 0.08s ease-out, box-shadow 0.08s ease-out;
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 32px rgba(56,189,248,0.45);
+    }
+    a { color: #2563eb; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-soft);
+      margin: 0 0 1.5rem;
+      padding: 0 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="topbar">
+      <div class="brand">
+        <div class="brand-title">Health Technology Consulting</div>
+        <div class="brand-sub">Transformación digital · Salud & Empresas</div>
+      </div>
+      <nav class="nav">
+        <a href="index.html">Inicio</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="sectores.html" class="active">Sectores</a>
+        <a href="casos.html">Casos de éxito</a>
+        <a href="contacto.html" class="nav-cta">Contacto</a>
+      </nav>
+    </div>
+    <div class="subtitle-header">
+      <h1>Sectores que acompañamos</h1>
+      <p class="subtitle">
+        Trabajamos principalmente con prestadores de salud privados y empresas sin grandes equipos internos de TI, que necesitan avanzar en transformación digital sin perder el foco en la operación diaria.
+      </p>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="caps">Foco</div>
+      <h2>Donde más valor aportamos</h2>
+      <p>
+        Nuestra experiencia combina salud, gestión y tecnología. Eso nos permite colaborar con organizaciones que viven la presión del día a día, pero que necesitan modernizar su ecosistema de sistemas y procesos.
+      </p>
+      <p class="soft">
+        No buscamos estar en todos lados: preferimos proyectos donde podamos involucrarnos de verdad, con impacto tangible.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="sector-grid">
+        <article class="card">
+          <h3>Prestadores de salud privados</h3>
+          <p class="soft">
+            Clínicas, centros médicos y redes privadas que requieren mejorar su gestión administrativa, financiera y tecnológica, sin interrumpir la atención.
+          </p>
+          <ul>
+            <li>Optimización de procesos de facturación, cuentas médicas y glosas.</li>
+            <li>Integración entre sistemas clínicos, ERP y plataformas de RRHH.</li>
+            <li>Proyectos de modernización de infraestructura y comunicaciones.</li>
+            <li>Apoyo en la adopción de nuevas plataformas y herramientas.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Empresas & PYMEs</h3>
+          <p class="soft">
+            Organizaciones que no cuentan con grandes departamentos de TI, pero que necesitan orden, visibilidad y herramientas modernas para crecer.
+          </p>
+          <ul>
+            <li>Implementación de ERP de gestión y finanzas.</li>
+            <li>Migración a plataformas colaborativas en la nube.</li>
+            <li>Automatización de tareas operativas y reportes.</li>
+            <li>Acompañamiento como “equipo de TI extendido”.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="caps">Por qué nos eligen</div>
+      <h2>Una mirada que une clínica, negocio y TI</h2>
+      <p class="soft">
+        Entendemos tanto el lenguaje clínico como el financiero y tecnológico. Eso facilita la conversación entre equipos y acelera la toma de decisiones.
+      </p>
+      <ul>
+        <li>Experiencia directa en proyectos complejos en salud y empresas.</li>
+        <li>Traducción de objetivos estratégicos en iniciativas tecnológicas concretas.</li>
+        <li>Proyectos acotados, con entregables claros y seguimiento posterior.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <div class="caps">Ejemplos</div>
+      <h2>Casos de proyectos recientes</h2>
+      <p class="soft">
+        Hemos trabajado en proyectos que van desde la integración de sistemas clínicos y ERP, hasta programas de adopción de plataformas colaborativas y automatización de procesos administrativos.
+      </p>
+      <p class="soft">
+        Algunos ejemplos incluyen:
+      </p>
+      <ul>
+        <li>Modernización del flujo de facturación y reporting en una clínica privada de alta complejidad.</li>
+        <li>Implementación de ERP y Office 365 para una empresa de servicios en crecimiento.</li>
+        <li>Diseño de roadmap tecnológico para una organización que busca ordenar su portafolio de aplicaciones.</li>
+      </ul>
+      <p class="soft">
+        Puedes ver más detalles en <a href="casos.html">Casos de éxito</a>.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="caps">Siguiente paso</div>
+      <h2>¿Te reconoces en alguno de estos escenarios?</h2>
+      <p class="soft">
+        Si tu organización se parece a estos contextos y sientes que es momento de ordenar, integrar o modernizar, podemos explorar juntos qué tipo de proyecto tendría más sentido.
+      </p>
+      <a class="btn-primary" href="contacto.html">Hablar con HTC</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="soft">
+      El Clonqui 1077, Vitacura, Santiago, Chile · htc21.site
+    </div>
+    © <span id="year"></span> Health Technology Consulting
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Health Technology Consulting · Transformación Digital en Salud y Empresas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Health Technology Consulting: consultora boutique que impulsa la transformación digital de prestadores de salud y empresas, integrando innovación tecnológica, procesos y gestión del cambio." />
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-light: #0b1220;
+      --text-main: #020617;
+      --text-soft: #6b7280;
+      --accent: #38bdf8;
+      --pill: #e5e7eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 0;
+      color: var(--text-main);
+      background: #ffffff;
+    }
+    header {
+      padding: 3.5rem 1.5rem 3rem;
+      text-align: center;
+      background: linear-gradient(135deg, var(--bg), var(--bg-light));
+      color: #f9fafb;
+    }
+    main {
+      max-width: 1040px;
+      margin: 2.5rem auto;
+      padding: 0 1.5rem 3rem;
+    }
+    h1 {
+      margin: 0.75rem 0 0.5rem;
+      font-size: clamp(2rem, 3vw, 2.6rem);
+    }
+    h2 {
+      margin: 0 0 0.75rem;
+      font-size: 1.35rem;
+    }
+    h3 {
+      margin: 0 0 0.4rem;
+      font-size: 1.05rem;
+    }
+    p { margin: 0.4rem 0 0.5rem; }
+    .pill {
+      display: inline-block;
+      padding: 0.3rem 0.9rem;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(148,163,184,0.5);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #e5e7eb;
+    }
+    .subtitle {
+      margin-top: 0.4rem;
+      font-size: 0.98rem;
+      color: #cbd5f5;
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .grid {
+      display: grid;
+      gap: 2rem;
+    }
+    @media (min-width: 880px) {
+      .grid {
+        grid-template-columns: 1.4fr 1fr;
+        align-items: flex-start;
+      }
+    }
+    ul { padding-left: 1.2rem; margin: 0.4rem 0 0; }
+    li { margin-bottom: 0.25rem; }
+    .card {
+      border-radius: 1rem;
+      padding: 1.5rem;
+      border: 1px solid #e5e7eb;
+      background: #ffffff;
+      box-shadow: 0 12px 30px rgba(15,23,42,0.04);
+    }
+    .card h3 {
+      margin-top: 0;
+    }
+    .tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: #4f46e5;
+      margin-bottom: 0.35rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .caps {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.75rem;
+      color: var(--text-soft);
+    }
+    .section {
+      margin-bottom: 2.2rem;
+    }
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.4rem;
+    }
+    .badge {
+      font-size: 0.75rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      background: #f3f4f6;
+      color: #4b5563;
+    }
+    .services-grid {
+      display: grid;
+      gap: 1rem;
+      margin-top: 0.8rem;
+    }
+    @media (min-width: 720px) {
+      .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    .service-item {
+      border-radius: 0.9rem;
+      border: 1px solid #e5e7eb;
+      padding: 0.8rem 1rem;
+      background: #f9fafb;
+    }
+    .service-item h3 {
+      font-size: 0.98rem;
+      margin-bottom: 0.25rem;
+    }
+    .service-item p {
+      font-size: 0.86rem;
+      color: var(--text-soft);
+    }
+    .cta {
+      margin-top: 1.5rem;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.7rem 1.4rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-decoration: none;
+      background: var(--accent);
+      color: #0f172a;
+      box-shadow: 0 10px 25px rgba(56,189,248,0.35);
+      transition: transform 0.08s ease-out, box-shadow 0.08s ease-out;
+      margin-top: 0.6rem;
+    }
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 32px rgba(56,189,248,0.45);
+    }
+    .btn:active {
+      transform: translateY(1px);
+      box-shadow: 0 6px 18px rgba(56,189,248,0.3);
+    }
+    .soft {
+      color: var(--text-soft);
+      font-size: 0.93rem;
+    }
+    .muted {
+      color: var(--text-soft);
+      font-size: 0.85rem;
+    }
+    a { color: #2563eb; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-soft);
+      margin: 0 0 1.5rem;
+      padding: 0 1.5rem;
+    }
+
+    /* Formulario de contacto */
+    .contact-form {
+      margin-top: 1.2rem;
+      padding: 1.1rem 1.1rem 1.2rem;
+      border-radius: 0.9rem;
+      border: 1px solid #e5e7eb;
+      background: #f9fafb;
+    }
+    .contact-form .field {
+      margin-bottom: 0.7rem;
+    }
+    .contact-form label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+      color: #4b5563;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.45rem 0.6rem;
+      border-radius: 0.5rem;
+      border: 1px solid #d1d5db;
+      font-family: inherit;
+      font-size: 0.9rem;
+      outline: none;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #38bdf8;
+      box-shadow: 0 0 0 1px rgba(56,189,248,0.45);
+    }
+    .contact-form textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+    .contact-form button {
+      display: inline-block;
+      margin-top: 0.3rem;
+      padding: 0.55rem 1.2rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 500;
+      background: #0f172a;
+      color: #f9fafb;
+      box-shadow: 0 10px 25px rgba(15,23,42,0.35);
+      transition: transform 0.08s ease-out, box-shadow 0.08s ease-out;
+    }
+    .contact-form button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 32px rgba(15,23,42,0.45);
+    }
+    .contact-form button:active {
+      transform: translateY(1px);
+      box-shadow: 0 6px 18px rgba(15,23,42,0.3);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="pill">Consultora boutique · Salud & Empresas</div>
+    <h1>Health Technology Consulting</h1>
+    <p class="subtitle">
+      Acompañamos a prestadores de salud y organizaciones a integrar innovación tecnológica, procesos digitalizados y gestión del cambio para lograr resultados medibles.
+    </p>
+  </header>
+
+  <main>
+    <div class="grid">
+      <!-- Columna principal -->
+      <section>
+        <div class="section">
+          <div class="caps">Misión</div>
+          <h2>Potenciar a quienes cuidan y sirven</h2>
+          <p>
+            Nuestra misión es apoyar a los proveedores de servicios de salud y a las empresas a modernizar su operación, reduciendo costos, elevando la calidad de atención y mejorando la experiencia de sus equipos y pacientes.
+          </p>
+          <p class="soft">
+            Cubrimos todo el ciclo de la transformación digital: diagnóstico, diseño, implementación tecnológica y acompañamiento para que el cambio se sostenga en el tiempo.
+          </p>
+          <div class="badge-row">
+            <span class="badge">Transformación digital</span>
+            <span class="badge">Procesos & datos</span>
+            <span class="badge">Gestión del cambio</span>
+            <span class="badge">Innovación aplicada</span>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="caps">Servicios</div>
+          <h2>Lo que podemos hacer por tu organización</h2>
+
+          <div class="services-grid">
+            <div class="service-item">
+              <h3>Implementación y evolución de ERP</h3>
+              <p>
+                Proyectos en ERP de gestión, finanzas y remuneraciones, alineados con procesos reales y regulaciones del sector salud y otras industrias.
+              </p>
+            </div>
+            <div class="service-item">
+              <h3>Plataformas de personas & colaboración</h3>
+              <p>
+                Despliegue de soluciones como BUK y Microsoft 365/Office 365, desde el diseño hasta la adopción efectiva por parte de los equipos.
+              </p>
+            </div>
+            <div class="service-item">
+              <h3>Infraestructura de comunicaciones & nube</h3>
+              <p>
+                Modernización de redes, conectividad segura y migración a la nube para habilitar servicios digitales robustos y escalables.
+              </p>
+            </div>
+            <div class="service-item">
+              <h3>Consultoría estratégica en TI</h3>
+              <p>
+                Hoja de ruta tecnológica, priorización de iniciativas y gobierno de proyectos que conectan la estrategia clínica y de negocio con la tecnología.
+              </p>
+            </div>
+            <div class="service-item">
+              <h3>Integración de sistemas & datos</h3>
+              <p>
+                Conectamos sistemas clínicos, ERP, RRHH y plataformas externas para construir una visión integrada de la operación y del paciente/cliente.
+              </p>
+            </div>
+            <div class="service-item">
+              <h3>Capacitación y soporte</h3>
+              <p>
+                Formación práctica y soporte cercano para que las soluciones se utilicen bien y generen valor sostenido en el tiempo.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="caps">Perspectiva</div>
+          <h2>Innovación en salud y tecnología</h2>
+          <p class="soft">
+            Desde IoT en hospitales hasta inteligencia artificial aplicada al diagnóstico, investigación clínica y cadenas de suministro, compartimos tendencias y contenido especializado en nuestro blog.
+          </p>
+          <p class="soft">
+            Escribimos sobre cómo tecnologías emergentes —como IA generativa, realidad aumentada y blockchain— están redefiniendo la práctica médica, la gestión clínica y la experiencia del paciente.
+          </p>
+          <p class="muted">
+            Puedes explorar más en nuestro blog en <a href="https://www.casmuss.com" target="_blank" rel="noopener">casmuss.com</a>.
+          </p>
+        </div>
+
+        <section class="section cta">
+          <div class="caps">Contacto</div>
+          <h2>Conversemos sobre tu próximo proyecto</h2>
+          <p class="soft">
+            Cuéntanos en qué etapa estás: diagnóstico inicial, implementación de un sistema, integración de plataformas o adopción de IA. Diseñamos contigo un plan simple y accionable.
+          </p>
+          <p>
+            Tienes dos opciones: agendar una reunión directa o enviarnos un mensaje breve.
+          </p>
+
+          <!-- Botón principal: Calendly -->
+          <a class="btn" href="https://calendly.com/christian-htc/30min"
+             target="_blank" rel="noopener">
+            Agenda una reunión de 30 minutos
+          </a>
+
+          <!-- Formulario de contacto -->
+          <form class="contact-form"
+                action="https://formspree.io/f/xeoyrnwz"
+                method="POST">
+            <div class="field">
+              <label for="cf-nombre">Nombre</label>
+              <input type="text" id="cf-nombre" name="nombre" required />
+            </div>
+            <div class="field">
+              <label for="cf-email">Correo electrónico</label>
+              <input type="email" id="cf-email" name="_replyto" required />
+            </div>
+            <div class="field">
+              <label for="cf-empresa">Empresa (opcional)</label>
+              <input type="text" id="cf-empresa" name="empresa" />
+            </div>
+            <div class="field">
+              <label for="cf-mensaje">Mensaje</label>
+              <textarea id="cf-mensaje" name="mensaje" required></textarea>
+            </div>
+            <!-- Campo honeypot simple para bots -->
+            <input type="text" name="_gotcha" style="display:none" />
+            <button type="submit">Enviar mensaje</button>
+          </form>
+
+          <p class="muted" style="margin-top:0.8rem;">
+            O si prefieres, puedes escribirnos directamente a
+            <span class="em" data-user="christian" data-domain="casmuss.com"></span>
+            o
+            <span class="em" data-user="paola" data-domain="casmuss.com"></span>.
+          </p>
+        </section>
+      </section>
+
+      <!-- Columna lateral -->
+      <aside class="card">
+        <div class="tag">Salud</div>
+        <h3>Aliados de prestadores de salud</h3>
+        <p class="soft">
+          Trabajamos con clínicas y centros médicos que buscan renovar su ecosistema tecnológico, mejorar su gestión clínica y fortalecer su posición competitiva.
+        </p>
+        <ul>
+          <li>Optimización de procesos administrativos y de facturación.</li>
+          <li>Integración entre sistemas clínicos, ERP y plataformas de RRHH.</li>
+          <li>Gestión del cambio para la adopción de nuevas soluciones.</li>
+        </ul>
+
+        <hr style="margin:1rem 0; border:none; border-top:1px solid #e5e7eb;" />
+
+        <div class="tag">Empresas & PYMEs</div>
+        <h3>Equipo de TI extendido</h3>
+        <p class="soft">
+          Para empresas sin grandes departamentos de TI, actuamos como socio tecnológico de largo plazo, con foco en eficiencia y crecimiento.
+        </p>
+        <ul>
+          <li>Migración a herramientas colaborativas en la nube.</li>
+          <li>Automatización de tareas operativas y reportes de gestión.</li>
+          <li>Acompañamiento continuo en decisiones tecnológicas clave.</li>
+        </ul>
+
+        <hr style="margin:1rem 0; border:none; border-top:1px solid #e5e7eb;" />
+
+        <div class="tag">Capacidades</div>
+        <h3>Cómo agregamos valor</h3>
+        <ul>
+          <li>Alta capacidad de adaptación tecnológica a cada realidad.</li>
+          <li>Fuerte experiencia en integración de sistemas complejos.</li>
+          <li>Visión estratégica para conectar negocio, procesos y TI.</li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+
+  <footer>
+    <div class="muted">
+      El Clonqui 1077, Vitacura, Santiago, Chile · htc21.site
+    </div>
+    © <span id="year"></span> Health Technology Consulting
+  </footer>
+
+  <script>
+    // Año en el footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Construye los emails a partir de data-*, solo como texto (sin mailto)
+    document.querySelectorAll('.em').forEach(function (el) {
+      var addr = el.dataset.user + '@' + el.dataset.domain;
+      el.textContent = addr;
+    });
+  </script>
+</body>
+</html>
