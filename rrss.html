@@ -141,7 +141,7 @@
     .carousel-frame {
       position: relative;
       width: 100%;
-      aspect-ratio: 21 / 9;
+      aspect-ratio: 4 / 5;
       border-radius: 1rem;
       overflow: hidden;
       background: linear-gradient(135deg, #0f172a, #1f2937);
@@ -152,9 +152,30 @@
     .carousel-frame img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       opacity: 1;
       transition: opacity 0.3s ease;
+    }
+    .carousel-controls {
+      margin-top: 1rem;
+      display: flex;
+      gap: 0.6rem;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+    }
+    .carousel-btn {
+      border: 1px solid #e5e7eb;
+      background: #ffffff;
+      color: #0f172a;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      box-shadow: 0 6px 16px rgba(15,23,42,0.08);
+    }
+    .carousel-btn:hover {
+      background: #f1f5f9;
     }
     .carousel-frame img.is-fading {
       opacity: 0;
@@ -197,6 +218,10 @@
       }
       .carousel-shell {
         padding: 2rem;
+      }
+      .carousel-frame {
+        aspect-ratio: 16 / 9;
+        max-height: 70vh;
       }
     }
     footer {
@@ -245,6 +270,10 @@
         <div class="carousel-frame">
           <img id="carousel-image" src="" alt="Imagen de artículo publicado en RRSS" decoding="async" />
         </div>
+        <div class="carousel-controls">
+          <button class="carousel-btn" type="button" id="carousel-prev" aria-label="Imagen anterior">Anterior</button>
+          <button class="carousel-btn" type="button" id="carousel-next" aria-label="Imagen siguiente">Siguiente</button>
+        </div>
         <div class="carousel-caption">
           <div class="carousel-title" id="carousel-title">Cargando publicaciones…</div>
           <div class="carousel-meta">
@@ -254,17 +283,6 @@
           <div class="carousel-status" id="carousel-status"></div>
         </div>
       </section>
-
-      <aside class="card">
-        <div class="caps">Notas</div>
-        <h2>Cómo se alimenta</h2>
-        <p class="soft">
-          Este carrusel toma las imágenes desde un archivo <strong>manifest.json</strong> en el bucket de Cloudflare R2.
-        </p>
-        <p class="soft">
-          Solo necesitas actualizar ese JSON cuando subas nuevas imágenes, sin tocar el HTML.
-        </p>
-      </aside>
     </div>
   </main>
 
@@ -290,11 +308,14 @@
     const statusEl = document.getElementById('carousel-status');
     const counterEl = document.getElementById('carousel-counter');
     const intervalEl = document.getElementById('carousel-interval');
+    const prevBtn = document.getElementById('carousel-prev');
+    const nextBtn = document.getElementById('carousel-next');
 
     intervalEl.textContent = intervalMinutes.toString();
 
     let currentIndex = 0;
     let carouselItems = [];
+    let carouselTimer = null;
 
     const updateCounter = () => {
       counterEl.textContent = `${currentIndex + 1} / ${carouselItems.length}`;
@@ -309,9 +330,9 @@
         imageEl.classList.add('is-fading');
         window.setTimeout(() => {
           imageEl.src = src;
-          imageEl.alt = item.alt || item.title;
-          titleEl.textContent = item.title;
-          metaEl.textContent = item.date;
+          imageEl.alt = item.alt || item.title || 'Publicación RRSS';
+          titleEl.textContent = item.title || 'Publicación RRSS';
+          metaEl.textContent = item.date || '';
           updateCounter();
           imageEl.classList.remove('is-fading');
         }, 200);
@@ -329,15 +350,22 @@
         titleEl.textContent = 'Aún no hay imágenes cargadas.';
         metaEl.textContent = 'Actualiza el manifest.json en R2.';
         counterEl.textContent = '0 / 0';
+        prevBtn.disabled = true;
+        nextBtn.disabled = true;
         return;
       }
 
       renderItem(carouselItems[currentIndex]);
       if (carouselItems.length > 1) {
-        window.setInterval(() => {
+        prevBtn.disabled = false;
+        nextBtn.disabled = false;
+        carouselTimer = window.setInterval(() => {
           currentIndex = (currentIndex + 1) % carouselItems.length;
           renderItem(carouselItems[currentIndex]);
         }, intervalMs);
+      } else {
+        prevBtn.disabled = true;
+        nextBtn.disabled = true;
       }
     };
 
@@ -360,6 +388,28 @@
         startCarousel();
       }
     };
+
+    const goToIndex = (index) => {
+      if (!carouselItems.length) return;
+      currentIndex = (index + carouselItems.length) % carouselItems.length;
+      renderItem(carouselItems[currentIndex]);
+    };
+
+    prevBtn.addEventListener('click', () => {
+      if (carouselTimer) {
+        clearInterval(carouselTimer);
+        carouselTimer = null;
+      }
+      goToIndex(currentIndex - 1);
+    });
+
+    nextBtn.addEventListener('click', () => {
+      if (carouselTimer) {
+        clearInterval(carouselTimer);
+        carouselTimer = null;
+      }
+      goToIndex(currentIndex + 1);
+    });
 
     loadManifest();
   </script>
