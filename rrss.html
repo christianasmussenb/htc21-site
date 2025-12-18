@@ -256,11 +256,11 @@
         <div class="caps">Notas</div>
         <h2>Cómo se alimenta</h2>
         <p class="soft">
-          Este carrusel toma las imágenes listadas en el arreglo de JavaScript y construye las URL desde el bucket
-          <strong>htc21-site</strong> en Cloudflare R2.
+          Este carrusel toma las imágenes desde un archivo <strong>manifest.json</strong> en el bucket
+          <strong>htc21-site</strong> de Cloudflare R2.
         </p>
         <p class="soft">
-          Si quieres que la lista se cargue desde un archivo JSON en R2, podemos agregarlo como siguiente paso.
+          Solo necesitas actualizar ese JSON cuando subas nuevas imágenes, sin tocar el HTML.
         </p>
         <p class="soft">
           Parámetros actuales: <br />
@@ -282,12 +282,7 @@
     document.getElementById('year').textContent = new Date().getFullYear();
 
     const baseUrl = 'https://8d2ac30c8aa0d8419833f740e39e61c6.r2.cloudflarestorage.com/htc21-site/';
-    const carouselItems = [
-      { key: 'rrss/2024-01.jpg', title: 'Transformación digital en salud', date: 'Enero 2024', alt: 'Artículo sobre transformación digital en salud' },
-      { key: 'rrss/2024-02.jpg', title: 'Gestión del cambio en equipos clínicos', date: 'Febrero 2024', alt: 'Artículo sobre gestión del cambio en equipos clínicos' },
-      { key: 'rrss/2024-03.jpg', title: 'Integración de sistemas críticos', date: 'Marzo 2024', alt: 'Artículo sobre integración de sistemas críticos' },
-      { key: 'rrss/2024-04.jpg', title: 'Automatización de procesos administrativos', date: 'Abril 2024', alt: 'Artículo sobre automatización de procesos administrativos' }
-    ];
+    const manifestPath = 'manifest.json';
 
     const intervalMinutes = 3;
     const intervalMs = intervalMinutes * 60 * 1000;
@@ -302,6 +297,7 @@
     intervalEl.textContent = intervalMinutes.toString();
 
     let currentIndex = 0;
+    let carouselItems = [];
 
     const updateCounter = () => {
       counterEl.textContent = `${currentIndex + 1} / ${carouselItems.length}`;
@@ -331,11 +327,14 @@
       nextImage.src = src;
     };
 
-    if (carouselItems.length === 0) {
-      titleEl.textContent = 'Aún no hay imágenes cargadas.';
-      metaEl.textContent = 'Actualiza el arreglo de publicaciones.';
-      counterEl.textContent = '0 / 0';
-    } else {
+    const startCarousel = () => {
+      if (carouselItems.length === 0) {
+        titleEl.textContent = 'Aún no hay imágenes cargadas.';
+        metaEl.textContent = 'Actualiza el manifest.json en R2.';
+        counterEl.textContent = '0 / 0';
+        return;
+      }
+
       renderItem(carouselItems[currentIndex]);
       if (carouselItems.length > 1) {
         window.setInterval(() => {
@@ -343,7 +342,29 @@
           renderItem(carouselItems[currentIndex]);
         }, intervalMs);
       }
-    }
+    };
+
+    const loadManifest = async () => {
+      const manifestUrl = `${baseUrl}${manifestPath}`;
+      try {
+        const response = await fetch(manifestUrl, { cache: 'no-store' });
+        if (!response.ok) {
+          throw new Error('No se pudo leer el manifest.json.');
+        }
+        const data = await response.json();
+        if (!Array.isArray(data)) {
+          throw new Error('El manifest.json no tiene el formato esperado.');
+        }
+        carouselItems = data;
+      } catch (error) {
+        statusEl.textContent = 'No se pudo cargar el manifest.json desde R2.';
+        carouselItems = [];
+      } finally {
+        startCarousel();
+      }
+    };
+
+    loadManifest();
   </script>
 </body>
 </html>
