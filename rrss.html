@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Galería RRSS · Health Technology Consulting</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Galería de imágenes de artículos publicados en RRSS durante el año. Actualización automática desde Cloudflare R2." />
+  <!-- Cloudflare Web Analytics -->
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "3866fabbafff4f0fb1243a3785478f1d"}'></script>
+  <!-- End Cloudflare Web Analytics -->
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-light: #0b1220;
+      --text-main: #020617;
+      --text-soft: #6b7280;
+      --accent: #38bdf8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 0;
+      color: var(--text-main);
+      background: #ffffff;
+    }
+    header {
+      padding: 1.25rem 1.5rem 2.5rem;
+      background: linear-gradient(135deg, var(--bg), var(--bg-light));
+      color: #f9fafb;
+    }
+    .topbar {
+      max-width: 1040px;
+      margin: 0 auto 1.75rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+    .brand-title {
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+    }
+    .brand-sub {
+      font-size: 0.8rem;
+      color: #cbd5f5;
+    }
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      align-items: center;
+      justify-content: flex-end;
+      font-size: 0.9rem;
+    }
+    .nav a {
+      color: #e5e7eb;
+      text-decoration: none;
+      padding-bottom: 0.15rem;
+      border-bottom: 1px solid transparent;
+    }
+    .nav a:hover {
+      border-bottom-color: rgba(148,163,184,0.9);
+    }
+    .nav a.active {
+      border-bottom-color: var(--accent);
+    }
+    .nav a.nav-cta {
+      border: none;
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #0f172a;
+      font-weight: 500;
+      box-shadow: 0 10px 25px rgba(56,189,248,0.35);
+    }
+    .subtitle-header {
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+    h1 {
+      margin: 0.5rem 0 0.3rem;
+      font-size: 1.9rem;
+    }
+    .subtitle {
+      margin-top: 0.25rem;
+      font-size: 0.95rem;
+      color: #cbd5f5;
+      max-width: 640px;
+    }
+    main {
+      max-width: 1040px;
+      margin: 2.5rem auto;
+      padding: 0 1.5rem 3rem;
+    }
+    h2 {
+      margin: 0 0 0.75rem;
+      font-size: 1.35rem;
+    }
+    p { margin: 0.4rem 0 0.5rem; }
+    .soft {
+      color: var(--text-soft);
+      font-size: 0.93rem;
+    }
+    .caps {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.75rem;
+      color: var(--text-soft);
+    }
+    .section {
+      margin-bottom: 2.4rem;
+    }
+    .card {
+      border-radius: 1rem;
+      padding: 1.5rem;
+      border: 1px solid #e5e7eb;
+      background: #ffffff;
+      box-shadow: 0 12px 30px rgba(15,23,42,0.04);
+    }
+    .carousel {
+      display: grid;
+      gap: 1.5rem;
+      align-items: start;
+    }
+    .carousel-shell {
+      border-radius: 1.2rem;
+      border: 1px solid #e5e7eb;
+      background: #f8fafc;
+      padding: 1.5rem;
+      box-shadow: 0 16px 35px rgba(15,23,42,0.08);
+    }
+    .carousel-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 1rem;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0f172a, #1f2937);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .carousel-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+    .carousel-frame img.is-fading {
+      opacity: 0;
+    }
+    .carousel-caption {
+      margin-top: 1.1rem;
+      display: grid;
+      gap: 0.35rem;
+    }
+    .carousel-title {
+      font-weight: 600;
+      font-size: 1.05rem;
+    }
+    .carousel-meta {
+      color: var(--text-soft);
+      font-size: 0.9rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+    }
+    .pill {
+      display: inline-block;
+      padding: 0.3rem 0.85rem;
+      border-radius: 999px;
+      background: #0f172a;
+      color: #e5e7eb;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .carousel-status {
+      color: #dc2626;
+      font-size: 0.85rem;
+      min-height: 1rem;
+    }
+    @media (min-width: 920px) {
+      .carousel {
+        grid-template-columns: 1.7fr 1fr;
+      }
+    }
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-soft);
+      margin: 0 0 1.5rem;
+      padding: 0 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="topbar">
+      <div class="brand">
+        <div class="brand-title">Health Technology Consulting</div>
+        <div class="brand-sub">Transformación digital · Salud & Empresas</div>
+      </div>
+      <nav class="nav">
+        <a href="index.html">Inicio</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="sectores.html">Sectores</a>
+        <a href="casos.html">Casos de éxito</a>
+        <a href="rrss.html" class="active">RRSS</a>
+        <a href="contacto.html" class="nav-cta">Contacto</a>
+      </nav>
+    </div>
+    <div class="subtitle-header">
+      <div class="pill">Contenido RRSS</div>
+      <h1>Galería de artículos publicados en RRSS</h1>
+      <p class="subtitle">
+        Un carrusel que recorre las publicaciones del año para compartir la evolución de contenidos y temáticas trabajadas.
+      </p>
+    </div>
+  </header>
+
+  <main>
+    <div class="section carousel">
+      <section class="carousel-shell">
+        <div class="caps">Carrusel automático</div>
+        <h2>Imágenes destacadas del año</h2>
+        <p class="soft">
+          El carrusel se actualiza automáticamente desde el bucket de Cloudflare R2 y rota cada <strong><span id="carousel-interval">3</span> minutos</strong>.
+          Para pasar a 30 minutos, solo cambia el valor del intervalo en el script.
+        </p>
+        <div class="carousel-frame">
+          <img id="carousel-image" src="" alt="Imagen de artículo publicado en RRSS" decoding="async" />
+        </div>
+        <div class="carousel-caption">
+          <div class="carousel-title" id="carousel-title">Cargando publicaciones…</div>
+          <div class="carousel-meta">
+            <span id="carousel-meta">Preparando la galería</span>
+            <span class="pill" id="carousel-counter">0 / 0</span>
+          </div>
+          <div class="carousel-status" id="carousel-status"></div>
+        </div>
+      </section>
+
+      <aside class="card">
+        <div class="caps">Notas</div>
+        <h2>Cómo se alimenta</h2>
+        <p class="soft">
+          Este carrusel toma las imágenes listadas en el arreglo de JavaScript y construye las URL desde el bucket
+          <strong>htc21-site</strong> en Cloudflare R2.
+        </p>
+        <p class="soft">
+          Si quieres que la lista se cargue desde un archivo JSON en R2, podemos agregarlo como siguiente paso.
+        </p>
+        <p class="soft">
+          Parámetros actuales: <br />
+          AccountID <strong>8d2ac30c8aa0d8419833f740e39e61c6</strong> <br />
+          S3 API <strong>https://8d2ac30c8aa0d8419833f740e39e61c6.r2.cloudflarestorage.com</strong>
+        </p>
+      </aside>
+    </div>
+  </main>
+
+  <footer>
+    <div class="soft">
+      El Clonqui 1077, Vitacura, Santiago, Chile · htc21.site
+    </div>
+    © <span id="year"></span> Health Technology Consulting
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const baseUrl = 'https://8d2ac30c8aa0d8419833f740e39e61c6.r2.cloudflarestorage.com/htc21-site/';
+    const carouselItems = [
+      { key: 'rrss/2024-01.jpg', title: 'Transformación digital en salud', date: 'Enero 2024', alt: 'Artículo sobre transformación digital en salud' },
+      { key: 'rrss/2024-02.jpg', title: 'Gestión del cambio en equipos clínicos', date: 'Febrero 2024', alt: 'Artículo sobre gestión del cambio en equipos clínicos' },
+      { key: 'rrss/2024-03.jpg', title: 'Integración de sistemas críticos', date: 'Marzo 2024', alt: 'Artículo sobre integración de sistemas críticos' },
+      { key: 'rrss/2024-04.jpg', title: 'Automatización de procesos administrativos', date: 'Abril 2024', alt: 'Artículo sobre automatización de procesos administrativos' }
+    ];
+
+    const intervalMinutes = 3;
+    const intervalMs = intervalMinutes * 60 * 1000;
+
+    const imageEl = document.getElementById('carousel-image');
+    const titleEl = document.getElementById('carousel-title');
+    const metaEl = document.getElementById('carousel-meta');
+    const statusEl = document.getElementById('carousel-status');
+    const counterEl = document.getElementById('carousel-counter');
+    const intervalEl = document.getElementById('carousel-interval');
+
+    intervalEl.textContent = intervalMinutes.toString();
+
+    let currentIndex = 0;
+
+    const updateCounter = () => {
+      counterEl.textContent = `${currentIndex + 1} / ${carouselItems.length}`;
+    };
+
+    const renderItem = (item) => {
+      statusEl.textContent = '';
+      const nextImage = new Image();
+      const src = `${baseUrl}${item.key}`;
+
+      nextImage.onload = () => {
+        imageEl.classList.add('is-fading');
+        window.setTimeout(() => {
+          imageEl.src = src;
+          imageEl.alt = item.alt || item.title;
+          titleEl.textContent = item.title;
+          metaEl.textContent = item.date;
+          updateCounter();
+          imageEl.classList.remove('is-fading');
+        }, 200);
+      };
+
+      nextImage.onerror = () => {
+        statusEl.textContent = 'No se pudo cargar la imagen desde R2.';
+      };
+
+      nextImage.src = src;
+    };
+
+    if (carouselItems.length === 0) {
+      titleEl.textContent = 'Aún no hay imágenes cargadas.';
+      metaEl.textContent = 'Actualiza el arreglo de publicaciones.';
+      counterEl.textContent = '0 / 0';
+    } else {
+      renderItem(carouselItems[currentIndex]);
+      if (carouselItems.length > 1) {
+        window.setInterval(() => {
+          currentIndex = (currentIndex + 1) % carouselItems.length;
+          renderItem(carouselItems[currentIndex]);
+        }, intervalMs);
+      }
+    }
+  </script>
+</body>
+</html>
