@@ -97,7 +97,7 @@
       max-width: 640px;
     }
     main {
-      max-width: 1040px;
+      max-width: 1260px;
       margin: 2.5rem auto;
       padding: 0 1.5rem 3rem;
     }
@@ -141,7 +141,7 @@
     .carousel-frame {
       position: relative;
       width: 100%;
-      aspect-ratio: 16 / 9;
+      aspect-ratio: 21 / 9;
       border-radius: 1rem;
       overflow: hidden;
       background: linear-gradient(135deg, #0f172a, #1f2937);
@@ -193,7 +193,10 @@
     }
     @media (min-width: 920px) {
       .carousel {
-        grid-template-columns: 1.7fr 1fr;
+        grid-template-columns: 1fr;
+      }
+      .carousel-shell {
+        padding: 2rem;
       }
     }
     footer {
@@ -256,16 +259,10 @@
         <div class="caps">Notas</div>
         <h2>Cómo se alimenta</h2>
         <p class="soft">
-          Este carrusel toma las imágenes desde un archivo <strong>manifest.json</strong> en el bucket
-          <strong>htc21-site</strong> de Cloudflare R2.
+          Este carrusel toma las imágenes desde un archivo <strong>manifest.json</strong> en el bucket de Cloudflare R2.
         </p>
         <p class="soft">
           Solo necesitas actualizar ese JSON cuando subas nuevas imágenes, sin tocar el HTML.
-        </p>
-        <p class="soft">
-          Parámetros actuales: <br />
-          AccountID <strong>8d2ac30c8aa0d8419833f740e39e61c6</strong> <br />
-          S3 API <strong>https://8d2ac30c8aa0d8419833f740e39e61c6.r2.cloudflarestorage.com</strong>
         </p>
       </aside>
     </div>
@@ -281,7 +278,7 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    const baseUrl = 'https://8d2ac30c8aa0d8419833f740e39e61c6.r2.cloudflarestorage.com/htc21-site/';
+    const baseUrl = 'https://htc21-site.8d2ac30c8aa0d8419833f740e39e61c6.r2.cloudflarestorage.com/';
     const manifestPath = 'manifest.json';
 
     const intervalMinutes = 3;
