@@ -316,6 +316,7 @@
     let currentIndex = 0;
     let carouselItems = [];
     let carouselTimer = null;
+    let resumeTimer = null;
 
     const updateCounter = () => {
       counterEl.textContent = `${currentIndex + 1} / ${carouselItems.length}`;
@@ -395,19 +396,31 @@
       renderItem(carouselItems[currentIndex]);
     };
 
-    prevBtn.addEventListener('click', () => {
+    const pauseAndResume = () => {
       if (carouselTimer) {
         clearInterval(carouselTimer);
         carouselTimer = null;
       }
+      if (resumeTimer) {
+        clearTimeout(resumeTimer);
+      }
+      if (carouselItems.length > 1) {
+        resumeTimer = window.setTimeout(() => {
+          carouselTimer = window.setInterval(() => {
+            currentIndex = (currentIndex + 1) % carouselItems.length;
+            renderItem(carouselItems[currentIndex]);
+          }, intervalMs);
+        }, intervalMs);
+      }
+    };
+
+    prevBtn.addEventListener('click', () => {
+      pauseAndResume();
       goToIndex(currentIndex - 1);
     });
 
     nextBtn.addEventListener('click', () => {
-      if (carouselTimer) {
-        clearInterval(carouselTimer);
-        carouselTimer = null;
-      }
+      pauseAndResume();
       goToIndex(currentIndex + 1);
     });
 
