@@ -4,166 +4,17 @@
   <meta charset="UTF-8" />
   <title>Casos de éxito · Health Technology Consulting</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Casos de éxito de Health Technology Consulting en proyectos de transformación digital, integración de sistemas y mejora de procesos en salud y empresas." />
+  <meta name="description" content="Casos de éxito de Health Technology Consulting en proyectos de transformación digital, integración de sistemas, InterSystems IRIS y mejora de procesos en salud y empresas." />
   <!-- Cloudflare Web Analytics -->
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "3866fabbafff4f0fb1243a3785478f1d"}'></script>
   <!-- End Cloudflare Web Analytics -->
+  <link rel="stylesheet" href="style.css" />
   <style>
-    :root {
-      --bg: #020617;
-      --bg-light: #0b1220;
-      --text-main: #020617;
-      --text-soft: #6b7280;
-      --accent: #38bdf8;
-    }
-    * { box-sizing: border-box; }
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      margin: 0;
-      padding: 0;
-      color: var(--text-main);
-      background: #ffffff;
-    }
-    header {
-      padding: 1.25rem 1.5rem 2.5rem;
-      background: linear-gradient(135deg, var(--bg), var(--bg-light));
-      color: #f9fafb;
-    }
-    .topbar {
-      max-width: 1040px;
-      margin: 0 auto 1.75rem;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-    .brand {
-      display: flex;
-      flex-direction: column;
-      gap: 0.2rem;
-    }
-    .brand-title {
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      font-size: 0.9rem;
-    }
-    .brand-sub {
-      font-size: 0.8rem;
-      color: #cbd5f5;
-    }
-    .nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.25rem;
-      align-items: center;
-      justify-content: flex-end;
-      font-size: 0.9rem;
-    }
-    .nav a {
-      color: #e5e7eb;
-      text-decoration: none;
-      padding-bottom: 0.15rem;
-      border-bottom: 1px solid transparent;
-    }
-    .nav a:hover {
-      border-bottom-color: rgba(148,163,184,0.9);
-    }
-    .nav a.active {
-      border-bottom-color: var(--accent);
-    }
-    .nav a.nav-cta {
-      border: none;
-      padding: 0.4rem 0.9rem;
-      border-radius: 999px;
-      background: var(--accent);
-      color: #0f172a;
-      font-weight: 500;
-      box-shadow: 0 10px 25px rgba(56,189,248,0.35);
-    }
-    .subtitle-header {
-      max-width: 1040px;
-      margin: 0 auto;
-    }
-    h1 {
-      margin: 0.5rem 0 0.3rem;
-      font-size: 1.9rem;
-    }
-    .subtitle {
-      margin-top: 0.25rem;
-      font-size: 0.95rem;
-      color: #cbd5f5;
-      max-width: 640px;
-    }
-    main {
-      max-width: 1040px;
-      margin: 2.5rem auto;
-      padding: 0 1.5rem 3rem;
-    }
-    h2 {
-      margin: 0 0 0.75rem;
-      font-size: 1.35rem;
-    }
-    h3 {
-      margin: 0 0 0.4rem;
-      font-size: 1.05rem;
-    }
-    p { margin: 0.4rem 0 0.5rem; }
-    .soft {
-      color: var(--text-soft);
-      font-size: 0.93rem;
-    }
-    .caps {
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-size: 0.75rem;
-      color: var(--text-soft);
-    }
-    .section {
-      margin-bottom: 2.4rem;
-    }
-    .case {
-      border-radius: 0.9rem;
-      border: 1px solid #e5e7eb;
-      padding: 1.1rem 1.3rem;
-      background: #f9fafb;
-      margin-bottom: 1.2rem;
-    }
-    .case-meta {
-      font-size: 0.83rem;
-      color: var(--text-soft);
-      margin-bottom: 0.3rem;
-    }
-    ul { padding-left: 1.2rem; margin: 0.4rem 0 0; }
-    li { margin-bottom: 0.25rem; font-size: 0.9rem; }
-    .btn-primary {
-      display: inline-block;
-      padding: 0.7rem 1.4rem;
-      border-radius: 999px;
-      border: none;
-      cursor: pointer;
-      font-size: 0.95rem;
-      font-weight: 500;
-      text-decoration: none;
-      background: var(--accent);
-      color: #0f172a;
-      box-shadow: 0 10px 25px rgba(56,189,248,0.35);
-      transition: transform 0.08s ease-out, box-shadow 0.08s ease-out;
-    }
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 14px 32px rgba(56,189,248,0.45);
-    }
-    a { color: #2563eb; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    footer {
-      text-align: center;
-      font-size: 0.85rem;
-      color: var(--text-soft);
-      margin: 0 0 1.5rem;
-      padding: 0 1.5rem;
-    }
+    .case { border-radius: 0.9rem; border: 1px solid #e5e7eb; padding: 1.1rem 1.3rem; background: #f9fafb; margin-bottom: 1.2rem; }
+    .case.highlight { border-color: rgba(56,189,248,0.4); background: rgba(56,189,248,0.04); }
+    .case-meta { font-size: 0.83rem; color: var(--text-soft); margin-bottom: 0.3rem; }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.6rem; }
+    .tag { font-size: 0.75rem; padding: 0.15rem 0.5rem; border-radius: 999px; background: rgba(56,189,248,0.12); color: #0369a1; border: 1px solid rgba(56,189,248,0.3); }
   </style>
 </head>
 <body>
@@ -177,9 +28,9 @@
         <a href="index.html">Inicio</a>
         <a href="servicios.html">Servicios</a>
         <a href="sectores.html">Sectores</a>
-        <a href="casos.html" class="active">Casos de éxito</a>
+        <a href="casos.html" class="active" aria-current="page">Casos de éxito</a>
+        <a href="intersystems.html">Plataformas</a>
         <a href="rrss.html">RRSS</a>
-        <a href="privacidad.html">Privacidad</a>
         <a href="contacto.html" class="nav-cta">Contacto</a>
       </nav>
     </div>
@@ -193,7 +44,7 @@
 
   <main>
     <section class="section">
-      <div class="caps">Ejemplos</div>
+      <div class="caps">Proyectos de transformación</div>
 
       <article class="case">
         <div class="case-meta">Clínica privada · Proyecto de modernización administrativa</div>
@@ -235,6 +86,54 @@
           <li><strong>Solución:</strong> roadmap a 2–3 años, con proyectos priorizados, dependencias claras y criterios de éxito.</li>
           <li><strong>Resultados:</strong> portafolio ordenado de iniciativas y base más sólida para gestionar inversiones tecnológicas.</li>
         </ul>
+      </article>
+    </section>
+
+    <section class="section">
+      <div class="caps">Proyectos sobre InterSystems IRIS</div>
+
+      <article class="case highlight">
+        <div class="case-meta">Empresa retail multipaís · VTEX + SAP + InterSystems IRIS</div>
+        <h3>Orquestación de carritos abandonados entre e-commerce y ERP</h3>
+        <p class="soft">
+          Una empresa con operaciones en Chile, México y Colombia necesitaba cerrar la brecha entre su plataforma de e-commerce VTEX y SAP, recuperando oportunidades de venta perdidas y generando trazabilidad completa.
+        </p>
+        <ul>
+          <li><strong>Desafío:</strong> carritos abandonados sin seguimiento, sin comunicación entre VTEX y SAP, sin auditoría de recuperación.</li>
+          <li><strong>Enfoque:</strong> diseño de Interoperability Production en IRIS con Business Process Language para orquestar los flujos.</li>
+          <li><strong>Solución:</strong> Business Service (webhook VTEX) → Business Process (BPL con lógica de negocio) → Operations (SAP BAPI + MySQL JDBC + Email). Auditoría estructurada en cada paso.</li>
+          <li><strong>Resultados:</strong> recuperación automatizada de oportunidades de venta, trazabilidad completa y cero intervención manual en el flujo.</li>
+        </ul>
+        <div class="tag-row">
+          <span class="tag">InterSystems IRIS</span>
+          <span class="tag">Business Process Language</span>
+          <span class="tag">SAP BAPI</span>
+          <span class="tag">VTEX</span>
+          <span class="tag">MySQL JDBC</span>
+        </div>
+      </article>
+
+      <article class="case highlight">
+        <div class="case-meta">Organización de salud · IntegratedML + IA conversacional</div>
+        <h3>Predicción de no-shows y Business Intelligence asistido por IA</h3>
+        <p class="soft">
+          Una organización de salud necesitaba reducir el impacto de las inasistencias en agendas médicas y permitir a los equipos de gestión consultar sus reportes en lenguaje natural.
+        </p>
+        <ul>
+          <li><strong>Desafío:</strong> alta tasa de no-shows sin modelo predictivo, y reportes analíticos que solo los especialistas de BI podían consultar.</li>
+          <li><strong>Enfoque:</strong> IntegratedML nativo en IRIS para el modelo predictivo; API REST con governance para el asistente conversacional.</li>
+          <li><strong>Solución (no-shows):</strong> modelo IntegratedML entrenado sobre datos de Patient/Physician/Appointment en IRIS, integrado con FastAPI y Claude API para enriquecer predicciones con contexto conversacional.</li>
+          <li><strong>Solución (BI conversacional):</strong> Custom GPT + REST API que traduce preguntas en lenguaje natural a MDX/Pivot contra cubos analíticos IRIS, con allowlist de seguridad.</li>
+          <li><strong>Resultados:</strong> reducción de inasistencias no anticipadas y acceso democrático a reportes para equipos no técnicos.</li>
+        </ul>
+        <div class="tag-row">
+          <span class="tag">InterSystems IRIS</span>
+          <span class="tag">IntegratedML</span>
+          <span class="tag">Claude API</span>
+          <span class="tag">OpenAI / Custom GPT</span>
+          <span class="tag">Business Intelligence</span>
+          <span class="tag">FastAPI</span>
+        </div>
       </article>
     </section>
 

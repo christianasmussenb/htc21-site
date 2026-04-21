@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Plataformas InterSystems IRIS · Health Technology Consulting</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Desarrollo sobre InterSystems IRIS: interoperabilidad sanitaria, integración empresarial, modelos predictivos con IntegratedML y desarrollo asistido por IA." />
+  <!-- Cloudflare Web Analytics -->
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "3866fabbafff4f0fb1243a3785478f1d"}'></script>
+  <!-- End Cloudflare Web Analytics -->
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .two-col { display: grid; gap: 2rem; }
+    @media (min-width: 880px) {
+      .two-col { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
+    }
+    .cap-grid { display: grid; gap: 1.2rem; }
+    @media (min-width: 880px) {
+      .cap-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    .cap-item { border-radius: 0.9rem; border: 1px solid #e5e7eb; padding: 1rem 1.2rem; background: #f9fafb; }
+    .poc-grid { display: grid; gap: 1.4rem; }
+    @media (min-width: 880px) {
+      .poc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    .poc-card { border-radius: 1rem; border: 1px solid rgba(56,189,248,0.3); padding: 1.2rem 1.4rem; background: rgba(56,189,248,0.03); }
+    .poc-card h3 { font-size: 1rem; }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.7rem; }
+    .tag { font-size: 0.72rem; padding: 0.15rem 0.5rem; border-radius: 999px; background: rgba(56,189,248,0.12); color: #0369a1; border: 1px solid rgba(56,189,248,0.3); }
+    .iris-badge { display: inline-block; padding: 0.25rem 0.7rem; border-radius: 999px; background: #0f172a; color: #38bdf8; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.6rem; }
+    .stack-list { list-style: none; padding: 0; margin: 0.4rem 0 0; display: flex; flex-direction: column; gap: 0.3rem; }
+    .stack-list li { font-size: 0.9rem; padding-left: 1.2rem; position: relative; }
+    .stack-list li::before { content: "→"; position: absolute; left: 0; color: var(--accent); font-size: 0.8rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="topbar">
+      <div class="brand">
+        <div class="brand-title">Health Technology Consulting</div>
+        <div class="brand-sub">Transformación digital · Salud & Empresas</div>
+      </div>
+      <nav class="nav">
+        <a href="index.html">Inicio</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="sectores.html">Sectores</a>
+        <a href="casos.html">Casos de éxito</a>
+        <a href="intersystems.html" class="active" aria-current="page">Plataformas</a>
+        <a href="rrss.html">RRSS</a>
+        <a href="contacto.html" class="nav-cta">Contacto</a>
+      </nav>
+    </div>
+    <div class="subtitle-header">
+      <h1>Desarrollo sobre InterSystems IRIS</h1>
+      <p class="subtitle">
+        Implementación, interoperabilidad y desarrollo asistido por IA sobre la plataforma de datos y salud digital más adoptada en Chile y Latinoamérica.
+      </p>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="section">
+      <div class="caps">Por qué InterSystems IRIS</div>
+      <div class="two-col">
+        <div>
+          <h2>La plataforma detrás de los sistemas de salud más exigentes</h2>
+          <p>
+            InterSystems IRIS for Health y HealthShare son la columna vertebral de hospitales, clínicas y redes de salud en más de 80 países. Su arquitectura unificada permite gestionar datos, procesos, analítica e interoperabilidad en una sola plataforma.
+          </p>
+          <p class="soft">
+            Combinamos más de 20 años de experiencia en transformación digital en salud con desarrollo activo sobre IRIS: desde Interoperability Productions y FHIR R4, hasta modelos predictivos con IntegratedML y agentes conversacionales con LLM.
+          </p>
+        </div>
+        <aside>
+          <div class="iris-badge">InterSystems IRIS</div>
+          <ul class="stack-list">
+            <li>ObjectScript — lenguaje nativo de IRIS</li>
+            <li>Interoperability Productions (BS, BP, BO)</li>
+            <li>Business Process Language (BPL)</li>
+            <li>REST APIs y CSP Pages</li>
+            <li>IntegratedML — ML nativo en IRIS</li>
+            <li>FHIR R4 sobre IRIS for Health / HealthShare</li>
+            <li>Docker deployment para entornos 24/7</li>
+            <li>Business Intelligence y cubos analíticos MDX</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="caps">Capacidades</div>
+      <h2>Qué podemos construir sobre IRIS</h2>
+      <div class="cap-grid">
+        <article class="cap-item">
+          <h3>Interoperabilidad clínica y empresarial</h3>
+          <p class="soft">
+            Diseño e implementación de Interoperability Productions que conectan sistemas heterogéneos con lógica de negocio robusta.
+          </p>
+          <ul>
+            <li>FHIR R4: Patient, Appointment, Organization, Schedule, Location.</li>
+            <li>Integración SAP (BAPI, JDBC, RFC): usuarios, facturación, glosas, cartera.</li>
+            <li>Conectores VTEX y otras plataformas de e-commerce mediante webhooks REST.</li>
+            <li>Bases de datos heterogéneas: MySQL, PostgreSQL vía JDBC/ODBC.</li>
+            <li>Procesamiento automático de archivos CSV con monitor de filesystem.</li>
+          </ul>
+        </article>
+
+        <article class="cap-item">
+          <h3>IA aplicada: IntegratedML y LLM</h3>
+          <p class="soft">
+            Modelos predictivos nativos en IRIS y asistentes conversacionales que consultan datos clínicos y de gestión.
+          </p>
+          <ul>
+            <li>IntegratedML para predicción clínica (no-shows, uso de recursos, riesgo).</li>
+            <li>BI conversacional: preguntas en lenguaje natural → MDX → cubos IRIS.</li>
+            <li>Integración con Claude API, OpenAI y NVIDIA AgentIQ.</li>
+            <li>Agentes multi-LLM con handoffs, guardrails y trazabilidad.</li>
+          </ul>
+        </article>
+
+        <article class="cap-item">
+          <h3>Orquestación de procesos con BPL</h3>
+          <p class="soft">
+            Flujos de integración complejos modelados con Business Process Language, auditables y modificables sin recompilación.
+          </p>
+          <ul>
+            <li>Lógica de negocio en BPL: condiciones, loops, llamadas a Operations.</li>
+            <li>Auditoría estructurada por mensaje y por transacción.</li>
+            <li>Manejo de errores, reintentos y alertas.</li>
+            <li>Trazabilidad completa desde ingreso hasta destino final.</li>
+          </ul>
+        </article>
+
+        <article class="cap-item">
+          <h3>Business Intelligence sobre IRIS</h3>
+          <p class="soft">
+            Cubos analíticos y reportes consolidados que integran múltiples fuentes de datos clínicos y administrativos.
+          </p>
+          <ul>
+            <li>Cubos fact/dimensión sobre datos de SAP, RRHH y sistemas clínicos.</li>
+            <li>MDX y Pivot queries para análisis multidimensional.</li>
+            <li>Consolidación de reportes SAP (facturación, glosas, cartera FI).</li>
+            <li>Governance de acceso y allowlists para consultas desde LLM.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="caps">PoCs de referencia</div>
+      <h2>Proyectos concretos sobre IRIS</h2>
+      <p class="soft">
+        Cada uno de estos proyectos está implementado y documentado. Pueden servir como base o inspiración para un proyecto en tu organización.
+      </p>
+      <div class="poc-grid">
+
+        <article class="poc-card">
+          <h3>Orquestación VTEX ↔ SAP ↔ Email</h3>
+          <p class="soft">
+            Recuperación automatizada de carritos abandonados en empresa retail multipaís. Business Service recibe webhook de VTEX, el Business Process (BPL) evalúa la lógica de negocio y dispara Operations hacia SAP BAPI, MySQL JDBC y correo.
+          </p>
+          <div class="tag-row">
+            <span class="tag">ObjectScript</span>
+            <span class="tag">BPL</span>
+            <span class="tag">SAP BAPI</span>
+            <span class="tag">VTEX</span>
+            <span class="tag">MySQL JDBC</span>
+          </div>
+        </article>
+
+        <article class="poc-card">
+          <h3>BI conversacional con ChatGPT</h3>
+          <p class="soft">
+            Asistente que traduce preguntas en lenguaje natural a consultas MDX contra cubos analíticos IRIS. Custom GPT con REST API gobernada por allowlists. Los equipos de gestión consultan reportes sin necesidad de conocer MDX.
+          </p>
+          <div class="tag-row">
+            <span class="tag">OpenAI / Custom GPT</span>
+            <span class="tag">REST API</span>
+            <span class="tag">MDX / BI Cubes</span>
+            <span class="tag">Governance</span>
+          </div>
+        </article>
+
+        <article class="poc-card">
+          <h3>Predicción de no-shows con IntegratedML + Claude</h3>
+          <p class="soft">
+            Modelo predictivo entrenado sobre tablas Patient / Physician / Appointment en IRIS con IntegratedML. FastAPI expone el modelo al exterior; Claude API enriquece las predicciones con contexto conversacional.
+          </p>
+          <div class="tag-row">
+            <span class="tag">IntegratedML</span>
+            <span class="tag">Claude API</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">HealthCare</span>
+          </div>
+        </article>
+
+        <article class="poc-card">
+          <h3>Ingesta automática de CSV multibase</h3>
+          <p class="soft">
+            Production IRIS con monitor de filesystem que detecta archivos CSV, los procesa mediante un Business Process y los carga en MySQL y PostgreSQL vía ODBC. Diseñado para entornos 24/7 con Docker.
+          </p>
+          <div class="tag-row">
+            <span class="tag">FileService</span>
+            <span class="tag">Business Process</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Docker</span>
+          </div>
+        </article>
+
+        <article class="poc-card">
+          <h3>FHIR R4 sobre IRIS for Health</h3>
+          <p class="soft">
+            Aplicación React 19 + TypeScript con CRUD completo de recursos FHIR R4: Patient, Organization, Location, Appointment, Schedule. Conectada al endpoint FHIR nativo de IRIS for Health / HealthShare.
+          </p>
+          <div class="tag-row">
+            <span class="tag">FHIR R4</span>
+            <span class="tag">HealthShare</span>
+            <span class="tag">React 19</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">shadcn/ui</span>
+          </div>
+        </article>
+
+        <article class="poc-card">
+          <h3>Integración SAP: gestión de usuarios</h3>
+          <p class="soft">
+            REST API sobre IRIS que expone operaciones de gestión de usuarios en SAP mediante BAPI: listar, crear, bloquear, desbloquear. CSP Pages como interfaz web complementaria. Namespace DEMO con Docker.
+          </p>
+          <div class="tag-row">
+            <span class="tag">SAP BAPI</span>
+            <span class="tag">REST API</span>
+            <span class="tag">CSP Pages</span>
+            <span class="tag">ObjectScript</span>
+            <span class="tag">Docker</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="caps">IA y agentes</div>
+      <h2>Más allá de IRIS: ecosistema de IA aplicada</h2>
+      <p class="soft">
+        Además del desarrollo sobre IRIS, trabajamos con frameworks de agentes y herramientas de IA que pueden complementar o extender las capacidades de la plataforma.
+      </p>
+      <div class="two-col">
+        <ul>
+          <li><strong>OpenAI Agents SDK:</strong> flujos multi-agente con handoffs entre especialistas y guardrails de seguridad.</li>
+          <li><strong>NVIDIA AgentIQ:</strong> toolkit agnóstico para equipos de agentes, compatible con MCP y UI de chat.</li>
+          <li><strong>Computer Using Agents (CUA):</strong> agentes con visión que toman capturas y ejecutan acciones en interfaces.</li>
+          <li><strong>RAG / búsqueda semántica:</strong> embeddings sobre datos clínicos y de gestión con Pinecone.</li>
+        </ul>
+        <ul>
+          <li><strong>Claude API (Anthropic):</strong> integración directa en producciones IRIS, FastAPI y backends Python.</li>
+          <li><strong>Prompt caching:</strong> reducción de costos en procesos de análisis repetitivo sobre documentos clínicos.</li>
+          <li><strong>Multi-agent con IRIS:</strong> IRIS como motor de datos y orquestación; LLM como capa de razonamiento.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="caps">Siguiente paso</div>
+      <h2>Conversemos sobre tu proyecto IRIS</h2>
+      <p class="soft">
+        Si tu organización trabaja con InterSystems IRIS, HealthShare o está evaluando iniciativas de interoperabilidad o IA, podemos explorar juntos qué tipo de proyecto tendría más impacto.
+      </p>
+      <div style="display:flex; flex-wrap:wrap; gap:1rem; align-items:center; margin-top:0.5rem;">
+        <a class="btn-primary" href="https://calendly.com/christian-htc/30min" target="_blank" rel="noopener">
+          Agenda una reunión de 30 min
+        </a>
+        <a href="contacto.html" style="font-size:0.95rem;">O envía un mensaje →</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="soft">
+      El Clonqui 1077, Vitacura, Santiago, Chile · htc21.site
+    </div>
+    <div class="soft">
+      <a href="privacidad.html">Política de privacidad</a>
+    </div>
+    © <span id="year"></span> Health Technology Consulting
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
